@@ -6,11 +6,7 @@ class java (
   $build   = 19,
   $update  = 60,
   $url     = 'http://download.oracle.com/otn-pub/java/jdk',
-  $path    = '/opt/java',
 ) {
-
-  #http://download.oracle.com/otn-pub/java/jdk/7u60-b19/jdk-7u60-linux-x64.rpm
-  #http://download.oracle.com/otn-pub/java/jdk/7u55-b13/jre-7u55-linux-x64.rpm
 
   $rpm_ver = "2000:1.${version}.0_${build}-fcs"
   $rpm_name = "${dist}-${version}u${update}-linux-x64.rpm"
@@ -27,13 +23,13 @@ class java (
 
   package { $dist:
     ensure   => present,
-    provider => rpm,
     source   => $rpm_file,
+    provider => rpm,
     require  => Staging::File[$rpm_name],
   }
 
   exec { 'java_alternatives':
-    command     => "alternatives --install /usr/bin/java java ${path}/bin/java 30000",
+    command     => "alternatives --install /usr/bin/java java /usr/java/latest/bin/java 100",
     path        => $::path,
     refreshonly => true,
     subscribe   => Package[$dist],
