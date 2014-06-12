@@ -29,7 +29,7 @@ class java (
   }
 
   exec { 'java_alternatives':
-    command     => "alternatives --install /usr/bin/java java /usr/java/latest/bin/java 100",
+    command     => 'alternatives --install /usr/bin/java java /usr/java/latest/bin/java 100',
     path        => $::path,
     refreshonly => true,
     subscribe   => Package[$dist],

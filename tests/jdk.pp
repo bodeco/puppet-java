@@ -1,0 +1,3 @@
+class { 'java':
+  dist =>  'jdk',
+}
