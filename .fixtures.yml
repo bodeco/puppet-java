@@ -1,7 +1,9 @@
 fixtures:
   repositories:
     stdlib: 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
-    staging: 'https://github.com/nanliu/puppet-staging.git'
+    archive: 'https://github.com/nanliu/puppet-archive.git'
+    pe_gem: 'https://github.com/puppetlabs/puppetlabs-pe_gem.git'
+    chocolatey: 'https://github.com/chocolatey/puppet-chocolatey.git'
     helper: 'https://github.com/bodeco/bodeco_module_helper.git'
   symlinks:
     java: source_dir
